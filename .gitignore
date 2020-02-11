@@ -4,4 +4,5 @@ lesson0/
 *.out
 *.blg
 *.bbl
+*.synctex.gz
 .DS_Store
