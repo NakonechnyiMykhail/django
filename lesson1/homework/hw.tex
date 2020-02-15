@@ -1,5 +1,11 @@
 %\documentclass[fleqn,14pt,a4paper,twoside]{extarticle}
 \documentclass[a4paper, 11pt]{extarticle}
+%%% Работа с русским языком
+\usepackage{cmap}					% поиск в PDF
+\usepackage{mathtext} 				% русские буквы в формулах
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
 %\usepackage[tmargin=4cm,bmargin=4cm,lmargin=2cm,rmargin=2cm,asymmetric,headheight=50pt,bindingoffset=1cm]{geometry}
 \usepackage[tmargin=1.5cm,bmargin=1.5cm,lmargin=2cm,rmargin=1.5cm,headheight=50pt]{geometry}
 \usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
@@ -35,7 +41,13 @@
 \usepackage[shortlabels]{enumitem}
 %\usepackage{indentfirst}
 \usepackage{hyperref}
-    
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
 \renewcommand{\thesubsection}{\thesection.\alph{subsection}}
 
 \newenvironment{problem}[2][Problem]
@@ -59,68 +71,176 @@
 \pagestyle{fancy}
 \graphicspath{{../../tex_templates/figures/}}
 
+% code listing settings
+\usepackage{listings}
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    aboveskip={1.0\baselineskip},
+    belowskip={1.0\baselineskip},
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=4,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=lines,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    numbers=left,
+    numberstyle=\small,
+    stepnumber=1,
+    numbersep=10pt,
+    captionpos=t,
+    escapeinside={\%*}{*)}
+}
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 %Header-Make sure you update this information!!!!
-\noindent
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\large{\textbf{Course: WebDev -- Django Start.}} \hfill  \\ 
-\vspace{0.25em}
+%\noindent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent \LARGE{\textbf{Course: WebDev -- Django Start.}} \hfill  \\ 
+%\vspace{0.25em}
 \textbf{Homework - 1}  \hfill  \\
 %Email: veralevel@gethu.edu \hfill ID: 123456789 \\
 
-Theme: Install instruments for work and basic \hfill  \\
+\noindent Theme: Install instruments for work and basic HTML\hfill  \\
 Level: beginner\\
 Instructor: Mikhail Nakonechnyi \\
 Due Date: $15^{th}$ February, 2020 \\
-\noindent\rule{7in}{2.8pt}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Problem 1
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{problem}{1}
-Consider the scalar system
-\begin{align*}
-    \Dot{x} &= -x + u + w
-\end{align*}
-$w$ is zero-mean process noise with a variance of $Q$. The control has a mean value of $u_0$, an uncertainty of $2$ (one standard deviation), and is uncorrelated with $w$. Rewrite the system equations to obtain an equivalent system with a normalized control that is perfectly known. What is the variance of the new process noise term in the transformed system equation?
-\end{problem}
-\begin{solution}
-The variance of the new process noise, $w_u$ is $\Sigma_{w_{u}} = Q + \sigma^2_u = Q + 4$.
-\begin{align*}
-    \Dot{x} &= -x + u_0 + \underbrace{w + \Delta u}_{w_{u}}, \quad w_u \sim (0, Q + \sigma^2_u).
-\end{align*}
-\end{solution} 
-\noindent\rule{7in}{2.8pt}
+\noindent\rule{6.257in}{2.8pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Problem 2
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}{1}
+Скачать \href{https://www.sublimetext.com/3}{Sublime Text 3} и установить. Все пункты выбирать по умолчанию.
+\end{problem}
+
+\noindent\rule{6.257in}{2.8pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{problem}{2}
-Consider the system
-\begin{align*}
-    x_{k+1} &= \phi x_{k} + w_{k}, \\
-    y_k &= x_k, 
-\end{align*}
-where $w_k \sim (0, 1)$, and $\phi = 0.9$ is an unknown constant. Design an extended Kalman filter to estimate $\phi$. Simulate the filter for $100$ time steps with $x_0 = 1, P_0 = I , \hat{x}_{0} = 0$, and $\hat{\phi}_{0} = 0$. Hand in your source code and a plot showing $\hat{\phi}$ as a function of time.
+Скачать \href{https://www.jetbrains.com/pycharm/download/#section=windows}{PyCharm Community} и установить. Все пункты выбирать по умолчанию.
 \end{problem}
-\begin{solution}
-Perform the measurement update of the state estimate and estimation error covariance as follows
-\begin{align*}
-    K_k &= P^{-}_k H^{\top}_k (H_k P^{-}_k H^{\top}_k + R_k)^{-1} = P^{-}_k H^{\top}_k (H_k P^{-}_k H^{\top}_k)^{-1}, \quad \text{Since }R_k = 0, \\
-    \hat{\bar{x}}^{+}_{k} &= \hat{\bar{x}}^{-}_{k} + K_k (y_k - h_k(\hat{\bar{x}}^{-}_{k}, 0)) \\
-    &= \hat{\bar{x}}^{-}_{k} + K_k (y_k - \hat{x}^{-}_{k}), \quad \text{Since } \hat{\phi}^{-}_{k} = 0, \\
-    P^{+}_k &= (I - K_k H_k) P^{-}_k
-\end{align*}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.25]{q2.png}
-    \caption{Plot showing $\hat{\phi}$ as a function of time.}
-    \label{fig_q2l}
-\end{figure}
-\end{solution} 
-\lstinputlisting{HW6Q2.m}
-\noindent\rule{7in}{2.8pt}
+
+\noindent\rule{6.257in}{2.8pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}{3}
+Установка \href{https://git-scm.com/downloads}{Git Bash}. Все пункты выбирать по умолчанию.
+\end{problem}
+
+\noindent\rule{6.257in}{2.8pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{4}
+Создать папку проекта \textbf{DjangoStart} у себя на ПК (для удобства лучше в папке \textbf{Документы/Documents} - код ниже, будет основан на этом расположении папки), далее скопировать в папку созданный репозиторий на \href{https://github.com/}{GitHub}. И проверить командой \textit{ls}, что папка репозитория скопировалась.\\
+
+\textit{\textbf{Примечание: }} для тех, кто не создал на занятии -- репозиторий создается пустой с названием \textbf{django}. 
+\end{problem}
+
+\noindent\rule{6.257in}{2.8pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{5}
+В папке \textbf{lesson1} нужно создать папку \textbf{homework} с помощью команд терминала \textbf{linux}. Далее скопировать файл \textbf{index.html} в эту папку.
+\end{problem}
+
+\noindent\rule{6.257in}{2.8pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}{6}
+Используя сайт \href{https://www.w3schools.com/html/default.asp}{w3school} с базовыми вещами \textit{html/css/js}, написать небольшую статью используя заголовок \textit{\textbf{h1}} (\textit{Название вашей статьи}), \textit{\textbf{h4}} (\textit{короткое описание - 1 предложение}), в тэг \textit{\textbf{p}} (\textit{любой текст от 200 до 1000 символов}). 
+\end{problem}
+%\begin{solution}
+%\end{solution} 
+\noindent\rule{6.257in}{2.8pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}{7}
+Добавить созданный файл \textbf{index.html} в ваш git репозиторий на GitHub.
+\end{problem}
+%\begin{solution}
+%\end{solution} 
+\noindent\rule{6.257in}{2.8pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 8
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}{8}
+Отправить мне ссылку на ваш репозиторий в telegram.
+\end{problem}
+%\begin{solution}
+
+%\end{solution} 
+\noindent\rule{6.257in}{2.8pt}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{problem}{9}
+%Consider the system
+%\begin{align*}
+%    x_{k+1} &= \phi x_{k} + w_{k}, \\
+%    y_k &= x_k, 
+%\end{align*}
+%where $w_k \sim (0, 1)$, and $\phi = 0.9$ is an unknown constant. Design an extended Kalman filter to estimate $\phi$. Simulate the filter for $100$ time steps with $x_0 = 1, P_0 = I %, \hat{x}_{0} = 0$, and $\hat{\phi}_{0} = 0$. Hand in your source code and a plot showing $\hat{\phi}$ as a function of time.
+%\end{problem}
+%\begin{solution}
+%Perform the measurement update of the state estimate and estimation error covariance as follows
+%\begin{align*}
+%    K_k &= P^{-}_k H^{\top}_k (H_k P^{-}_k H^{\top}_k + R_k)^{-1} = P^{-}_k H^{\top}_k (H_k P^{-}_k H^{\top}_k)^{-1}, \quad \text{Since }R_k = 0, \\
+%    \hat{\bar{x}}^{+}_{k} &= \hat{\bar{x}}^{-}_{k} + K_k (y_k - h_k(\hat{\bar{x}}^{-}_{k}, 0)) \\
+%    &= \hat{\bar{x}}^{-}_{k} + K_k (y_k - \hat{x}^{-}_{k}), \quad \text{Since } \hat{\phi}^{-}_{k} = 0, \\
+%    P^{+}_k &= (I - K_k H_k) P^{-}_k
+%\end{align*}
+%\begin{figure}[H]
+%   \centering
+%    \includegraphics[scale=0.25]{q2.png}
+%    \caption{Plot showing $\hat{\phi}$ as a function of time.}
+%    \label{fig_q2l}
+%\end{figure}
+%\end{solution} 
+%\lstinputlisting{HW6Q2.m}
+%\noindent\rule{7in}{2.8pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{thebibliography}{1}
+%\bibitem{ref}
+%{\sc Author.}
+%\newblock Title.
+%\newblock In {\em Proc.} ..., pages xx--xx, year.
+%\end{thebibliography}
+
+
 \end{document}
  
