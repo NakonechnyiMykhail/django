@@ -108,7 +108,7 @@
 
 \noindent \LARGE{\textbf{Course: WebDev -- Django Start.}} \hfill  \\ 
 %\vspace{0.25em}
-\textbf{Homework - 1}  \hfill  \\
+\textbf{Homework - 1. Solve}  \hfill  \\
 %Email: veralevel@gethu.edu \hfill ID: 123456789 \\
 
 \noindent Theme: Install instruments for work and basic HTML\hfill  \\
@@ -149,10 +149,34 @@ Due Date: $15^{th}$ February, 2020 \\
 
 \begin{problem}{4}
 Создать папку проекта \textbf{DjangoStart} у себя на ПК (для удобства лучше в папке \textbf{Документы/Documents} - код ниже, будет основан на этом расположении папки), далее скопировать в папку созданный репозиторий на \href{https://github.com/}{GitHub}. И проверить командой \textit{ls}, что папка репозитория скопировалась.\\
-
 \textit{\textbf{Примечание: }} для тех, кто не создал на занятии -- репозиторий создается пустой с названием \textbf{django}. 
+\begin{lstlisting}
+cd ~/Documents/
+mkdir DjangoStart
+cd DjangoStart
+git init
+mkdir lesson1
+cd lesson1
+touch index.html
+git add index.html
+git config --global user.name "Your nickname"
+git config --global user.email "name@mail.com"
+git commit -m "initial commit"
+git remote add origin https://github.com/$account$/$Repository name$.git
+\end{lstlisting}
 \end{problem}
-
+\begin{solution}
+%\begin{lstlisting}[label={list:second},caption=Sample Bash code.]
+\begin{lstlisting}
+cd ~/Documents/
+mkdir DjangoStart
+cd DjangoStart
+git init
+git clone https://github.com/$account$/$Repository name$.git
+git config --global user.name "Your nickname"
+git config --global user.email "name@mail.com"
+\end{lstlisting}
+\end{solution} 
 \noindent\rule{6.257in}{2.8pt}
 
 
@@ -161,7 +185,13 @@ Due Date: $15^{th}$ February, 2020 \\
 \begin{problem}{5}
 В папке \textbf{lesson1} нужно создать папку \textbf{homework} с помощью команд терминала \textbf{linux}. Далее скопировать файл \textbf{index.html} в эту папку.
 \end{problem}
-
+\begin{solution}
+\begin{lstlisting}
+cd ~/Documents/DjangoStart/lesson1/
+mkdir homework
+cp index.html homework/index.html
+\end{lstlisting}
+\end{solution} 
 \noindent\rule{6.257in}{2.8pt}
 
 
@@ -172,8 +202,9 @@ Due Date: $15^{th}$ February, 2020 \\
 \begin{problem}{6}
 Используя сайт \href{https://www.w3schools.com/html/default.asp}{w3school} с базовыми вещами \textit{html/css/js}, написать небольшую статью используя заголовок \textit{\textbf{h1}} (\textit{Название вашей статьи}), \textit{\textbf{h4}} (\textit{короткое описание - 1 предложение}), в тэг \textit{\textbf{p}} (\textit{любой текст от 200 до 1000 символов}). 
 \end{problem}
-%\begin{solution}
-%\end{solution} 
+\begin{solution}
+\lstinputlisting[language=HTML,caption=HTML code at path $\sim$/Documents/DjangoStart/lesson1/homework/index.html.]{index.html}
+\end{solution} 
 \noindent\rule{6.257in}{2.8pt}
 
 
@@ -184,8 +215,14 @@ Due Date: $15^{th}$ February, 2020 \\
 \begin{problem}{7}
 Добавить созданный файл \textbf{index.html} в ваш git репозиторий на GitHub.
 \end{problem}
-%\begin{solution}
-%\end{solution} 
+\begin{solution}
+\begin{lstlisting}[language=Bash,caption=Sample Bash code.]
+cd ~/Documents/DjangoStart/lesson1/homework/
+git add index.html
+git commit -m "homework 1"
+git push -u origin master
+\end{lstlisting}
+\end{solution} 
 \noindent\rule{6.257in}{2.8pt}
 
 
@@ -196,9 +233,7 @@ Due Date: $15^{th}$ February, 2020 \\
 \begin{problem}{8}
 Отправить мне ссылку на ваш репозиторий в telegram.
 \end{problem}
-%\begin{solution}
 
-%\end{solution} 
 \noindent\rule{6.257in}{2.8pt}
 
 
