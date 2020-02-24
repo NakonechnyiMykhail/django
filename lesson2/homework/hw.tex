@@ -1,0 +1,313 @@
+\documentclass[a4paper, 11pt]{extarticle}
+%%% Работа с русским языком
+\usepackage{cmap}					% поиск в PDF
+\usepackage{mathtext} 				% русские буквы в формулах
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+%\usepackage[tmargin=4cm,bmargin=4cm,lmargin=2cm,rmargin=2cm,asymmetric,headheight=50pt,bindingoffset=1cm]{geometry}
+\usepackage[tmargin=1.5cm,bmargin=1.5cm,lmargin=2cm,rmargin=1.5cm,headheight=50pt]{geometry}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{lipsum} %This package just generates Lorem Ipsum filler text. 
+\usepackage{fullpage} % changes the margin
+%\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{verbatim}
+%\usepackage[numbered]{mcode}
+\usepackage{float}
+\usepackage{tikz}
+    \usetikzlibrary{shapes,arrows}
+    \usetikzlibrary{arrows,calc,positioning}
+
+    \tikzset{
+        block/.style = {draw, rectangle,
+            minimum height=1cm,
+            minimum width=1.5cm},
+        input/.style = {coordinate,node distance=1cm},
+        output/.style = {coordinate,node distance=4cm},
+        arrow/.style={draw, -latex,node distance=2cm},
+        pinstyle/.style = {pin edge={latex-, black,node distance=2cm}},
+        sum/.style = {draw, circle, node distance=1cm},
+    }
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+%\usepackage{indentfirst}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\newenvironment{problem}[2][Problem]
+    { \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+% Define solution environment
+\newenvironment{solution}
+    {\textit{Solution:}}
+    {}
+
+\renewcommand{\qed}{\quad\qedsymbol}
+
+
+\usepackage{fancyhdr}
+\usepackage{emptypage}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[LE,RO]{\includegraphics [width=.3\textwidth] {logo.png}}
+\fancyfoot[LE,RO]{\thepage}
+\pagestyle{fancy}
+\graphicspath{{../../tex_templates/figures/}}
+
+% code listing settings
+\usepackage{listings}
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    aboveskip={1.0\baselineskip},
+    belowskip={1.0\baselineskip},
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=4,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=lines,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    numbers=left,
+    numberstyle=\small,
+    stepnumber=1,
+    numbersep=10pt,
+    captionpos=t,
+    escapeinside={\%*}{*)}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%Header-Make sure you update this information!!!!
+%\noindent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent \LARGE{\textbf{Course: WebDev -- Django Start.}} \hfill  \\ 
+%\vspace{0.25em}
+\textbf{Homework - 2. Solve}  \hfill  \\
+%Email: veralevel@gethu.edu \hfill ID: 123456789 \\
+
+\noindent Theme: Unix Bash scripting \hfill  \\
+Level: beginner\\
+Instructor: Mikhail Nakonechnyi \\
+%Due Date: $21^{th}$ February, 2020 \\
+\noindent\rule{6.257in}{2.8pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{1}
+Скачать \href{https://www.python.org/download}{Python 3} и установить. Первый пункт отметить галочкой, все остальное автоматически установится, или параметры по умолчанию далее выбирать.
+\end{problem}
+\noindent\rule{6.257in}{2.8pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{2}
+Повторить пункт 4 прошлого ДЗ, только изначально скачиваем архив с Вашего репозитория на \href{https://github.com/}{GitHub}. Далее распаковываем его в папку проекта \textbf{DjangoStart} у себя на ПК \\
+\textit{\textbf{Примечание: }}это все выполняется в программе \textbf{Git Bash}. 
+\end{problem}
+\noindent\rule{6.257in}{2.8pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{3}
+1. В папке \textbf{lesson2} нужно создать папку \textbf{homework} с помощью команд терминала \textbf{linux}. Далее скопировать файл \textbf{lesson2/script.sh} в эту папку в файл \textbf{task3.sh}. \\
+2. В файле реализовать скрипт для создания структуры папок проекта следующего рода:
+\begin{itemize}
+\item $\sim$/Documents/
+\item DjangoStart/
+\begin{itemize}
+\item lesson2/
+\begin{itemize}
+\item homework/
+\begin{itemize}
+\item js/
+\item css/
+\item img/
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+То есть при запуске скрипта, в той же папке \textbf{homework} должны создаваться папки \textbf{img, css, js}.
+\end{problem}
+\begin{solution} 
+\begin{lstlisting}[language=Bash]
+cd ~/Documents/DjangoStart/lesson2/
+mkdir homework
+cp script.sh homework/task3.sh
+cd homework/
+chmod +x task3.sh
+./task3.sh
+\end{lstlisting}
+
+\lstinputlisting[language=Bash,caption=task3.sh.]{task3.sh}
+
+\end{solution} 
+\noindent\rule{6.257in}{2.8pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}{4}
+Используя решение предыдущего задания, с помощью команд терминала создайте папку \textbf{homework/project} и скопируйте скрипт в новый файл \textbf{task4.sh} в эту папку. Файл должен создавать не только папки, но и определенные файлы как указано в структуре ниже. Скрипт находится в этой же структуре.
+\begin{itemize}
+\item js/
+\begin{itemize}
+\item main.js 
+\end{itemize}
+\item css/
+\begin{itemize}
+\item style.css
+\end{itemize}
+\item img/
+\begin{itemize}
+\item image.txt
+\end{itemize}
+\item index.html
+\item task4.sh
+\end{itemize}
+
+\end{problem}
+\begin{solution} 
+\begin{lstlisting}[language=Bash]
+cd ~/Documents/DjangoStart/lesson2/homework/
+mkdir project
+cp task3.sh project/task4.sh
+cd project/
+chmod +x task4.sh
+./task4.sh
+\end{lstlisting}
+\lstinputlisting[language=Bash,caption=/project/task4.sh.]{./project/task4.sh}
+
+\end{solution} 
+\noindent\rule{6.257in}{2.8pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}{5}
+В созданный в прошлом задании файл \textbf{index.html} скопировать данные с помощью команд терминала из прошлого ДЗ №6, который должен находиться по адресу\\ \textbf{lesson1/homework/index.html}. Далее измените файл \\вставив весь текст с тэгами внутри тэга \textbf{div}.
+
+\begin{itemize}
+\item <body>
+\begin{itemize}
+\item <div>
+\begin{itemize}
+\item <h1></h1>
+\item <h4></h4>
+\item <p></p>
+\end{itemize}
+\item </div>
+\end{itemize}
+\item </body>
+\end{itemize}
+После этого внутри папки \textbf{homework} создать файл в терминале \textbf{history.txt} и после выполнить эту команду:
+\begin{lstlisting}
+history >> history.txt
+\end{lstlisting}
+\end{problem}
+\begin{solution} 
+\begin{lstlisting}[language=Bash]
+cd ~/Documents/DjangoStart/lesson2/homework/
+cp ~/Documents/DjangoStart/lesson1/homework/index.html index.html
+\end{lstlisting}
+\vspace{-1.5em}
+\lstinputlisting[language=HTML,caption=index.html.]{index.html}
+\begin{lstlisting}[language=Bash]
+touch history.txt
+history >> history.txt
+\end{lstlisting}
+\vspace{-2.5em}
+\end{solution} 
+\noindent\rule{6.257in}{2.8pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}{6}
+Загрузить все файлы на \textbf{GitHub}. Отправить мне ссылку на ваш репозиторий в telegram.
+\end{problem}
+\begin{solution} 
+\begin{lstlisting}[language=Bash]
+cd ~/Documents/DjangoStart/
+git status
+git add lesson2/
+git commit -m "homework 2"
+git push -u origin master
+\end{lstlisting}
+\end{solution} 
+\noindent\rule{6.257in}{2.8pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{problem}{9}
+%Consider the system
+%\begin{align*}
+%    x_{k+1} &= \phi x_{k} + w_{k}, \\
+%    y_k &= x_k, 
+%\end{align*}
+%where $w_k \sim (0, 1)$, and $\phi = 0.9$ is an unknown constant. Design an extended Kalman filter to estimate $\phi$. Simulate the filter for $100$ time steps with $x_0 = 1, P_0 = I %, \hat{x}_{0} = 0$, and $\hat{\phi}_{0} = 0$. Hand in your source code and a plot showing $\hat{\phi}$ as a function of time.
+%\end{problem}
+%\begin{solution}
+%Perform the measurement update of the state estimate and estimation error covariance as follows
+%\begin{align*}
+%    K_k &= P^{-}_k H^{\top}_k (H_k P^{-}_k H^{\top}_k + R_k)^{-1} = P^{-}_k H^{\top}_k (H_k P^{-}_k H^{\top}_k)^{-1}, \quad \text{Since }R_k = 0, \\
+%    \hat{\bar{x}}^{+}_{k} &= \hat{\bar{x}}^{-}_{k} + K_k (y_k - h_k(\hat{\bar{x}}^{-}_{k}, 0)) \\
+%    &= \hat{\bar{x}}^{-}_{k} + K_k (y_k - \hat{x}^{-}_{k}), \quad \text{Since } \hat{\phi}^{-}_{k} = 0, \\
+%    P^{+}_k &= (I - K_k H_k) P^{-}_k
+%\end{align*}
+%\begin{figure}[H]
+%   \centering
+%    \includegraphics[scale=0.25]{q2.png}
+%    \caption{Plot showing $\hat{\phi}$ as a function of time.}
+%    \label{fig_q2l}
+%\end{figure}
+%\end{solution} 
+%\lstinputlisting{HW6Q2.m}
+%\noindent\rule{7in}{2.8pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{thebibliography}{1}
+%\bibitem{ref}
+%{\sc Author.}
+%\newblock Title.
+%\newblock In {\em Proc.} ..., pages xx--xx, year.
+%\end{thebibliography}
+
+
+\end{document}
+ 
