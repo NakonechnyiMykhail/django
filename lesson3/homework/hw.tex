@@ -149,13 +149,11 @@ Due Date: $28^{th}$ February, 2020 \\
 
 \begin{problem}{2}
 Задать \textbf{цвет} фона глобально для всей страницы. Сделать стиль для \textit{названия блога}, выбрав \textbf{цвет} для фона и цвет для текста. Каждое \textit{название статьи} должно иметь одинаковый цвет фона и цвет текста. Тоже самое для описания и текста, между собой они одинаковые, но цвета должны быть уникальны.\\
-\textit{\textbf{Примечание: }}то есть каждый тэг должен иметь уникальный цвет для фона и текста. Фон можно не каждому тэгу задавать, но минимум 2. 
+\textit{\textbf{Примечание: }}то есть каждый тэг должен иметь уникальный цвет для фона и текста. Фон можно не каждому тэгу задавать, но минимум 2. Для глубокого понимания и выполнения этой задачи, см. пункт \cite{problem4}.
 \end{problem}
 \noindent\rule{6.257in}{2.8pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Problem 3
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{problem}{3}
 Загрузить все файлы на \textbf{GitHub}. Отправить мне ссылку на ваш репозиторий в telegram.
 \end{problem}
@@ -169,46 +167,14 @@ Due Date: $28^{th}$ February, 2020 \\
 %\end{lstlisting}
 %\end{solution} 
 \noindent\rule{6.257in}{2.8pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{problem}{4}\label{problem4}
+Прочитать \href{https://html5book.ru/html-html5}{html5book}, пункты 1.1-1.6 (включительно). Из того, что проходили - \textbf{понимать все!!!}, с остальным главное ознакомиться.\\
+Для практики и примеров можно использовать \href{https://www.w3schools.com}{w3school}. 
+\end{problem}
+\noindent\rule{6.257in}{2.8pt}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Problem 9
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{problem}{9}
-%Consider the system
-%\begin{align*}
-%    x_{k+1} &= \phi x_{k} + w_{k}, \\
-%    y_k &= x_k, 
-%\end{align*}
-%where $w_k \sim (0, 1)$, and $\phi = 0.9$ is an unknown constant. Design an extended Kalman filter to estimate $\phi$. Simulate the filter for $100$ time steps with $x_0 = 1, P_0 = I %, \hat{x}_{0} = 0$, and $\hat{\phi}_{0} = 0$. Hand in your source code and a plot showing $\hat{\phi}$ as a function of time.
-%\end{problem}
-%\begin{solution}
-%Perform the measurement update of the state estimate and estimation error covariance as follows
-%\begin{align*}
-%    K_k &= P^{-}_k H^{\top}_k (H_k P^{-}_k H^{\top}_k + R_k)^{-1} = P^{-}_k H^{\top}_k (H_k P^{-}_k H^{\top}_k)^{-1}, \quad \text{Since }R_k = 0, \\
-%    \hat{\bar{x}}^{+}_{k} &= \hat{\bar{x}}^{-}_{k} + K_k (y_k - h_k(\hat{\bar{x}}^{-}_{k}, 0)) \\
-%    &= \hat{\bar{x}}^{-}_{k} + K_k (y_k - \hat{x}^{-}_{k}), \quad \text{Since } \hat{\phi}^{-}_{k} = 0, \\
-%    P^{+}_k &= (I - K_k H_k) P^{-}_k
-%\end{align*}
-%\begin{figure}[H]
-%   \centering
-%    \includegraphics[scale=0.25]{q2.png}
-%    \caption{Plot showing $\hat{\phi}$ as a function of time.}
-%    \label{fig_q2l}
-%\end{figure}
-%\end{solution} 
-%\lstinputlisting{HW6Q2.m}
-%\noindent\rule{7in}{2.8pt}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{thebibliography}{1}
-%\bibitem{ref}
-%{\sc Author.}
-%\newblock Title.
-%\newblock In {\em Proc.} ..., pages xx--xx, year.
-%\end{thebibliography}
 
 
 \end{document}
