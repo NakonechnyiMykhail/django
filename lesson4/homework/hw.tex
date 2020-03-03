@@ -1,0 +1,153 @@
+\documentclass[a4paper, 11pt]{extarticle}
+%%% Работа с русским языком
+\usepackage{cmap}					% поиск в PDF
+\usepackage{mathtext} 				% русские буквы в формулах
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+%\usepackage[tmargin=4cm,bmargin=4cm,lmargin=2cm,rmargin=2cm,asymmetric,headheight=50pt,bindingoffset=1cm]{geometry}
+\usepackage[tmargin=1.5cm,bmargin=1.5cm,lmargin=2cm,rmargin=1.5cm,headheight=50pt]{geometry}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{lipsum} %This package just generates Lorem Ipsum filler text. 
+\usepackage{fullpage} % changes the margin
+%\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{verbatim}
+%\usepackage[numbered]{mcode}
+\usepackage{float}
+\usepackage{tikz}
+    \usetikzlibrary{shapes,arrows}
+    \usetikzlibrary{arrows,calc,positioning}
+
+    \tikzset{
+        block/.style = {draw, rectangle,
+            minimum height=1cm,
+            minimum width=1.5cm},
+        input/.style = {coordinate,node distance=1cm},
+        output/.style = {coordinate,node distance=4cm},
+        arrow/.style={draw, -latex,node distance=2cm},
+        pinstyle/.style = {pin edge={latex-, black,node distance=2cm}},
+        sum/.style = {draw, circle, node distance=1cm},
+    }
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+%\usepackage{indentfirst}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\newenvironment{problem}[2][Problem]
+    { \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+% Define solution environment
+\newenvironment{solution}
+    {\textit{Solution:}}
+    {}
+
+\renewcommand{\qed}{\quad\qedsymbol}
+
+
+\usepackage{fancyhdr}
+\usepackage{emptypage}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[LE,RO]{\includegraphics [width=.3\textwidth] {logo.png}}
+\fancyfoot[LE,RO]{\thepage}
+\pagestyle{fancy}
+\graphicspath{{../../tex_templates/figures/}}
+
+% code listing settings
+\usepackage{listings}
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    aboveskip={1.0\baselineskip},
+    belowskip={1.0\baselineskip},
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=4,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=lines,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    numbers=left,
+    numberstyle=\small,
+    stepnumber=1,
+    numbersep=10pt,
+    captionpos=t,
+    escapeinside={\%*}{*)}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%Header-Make sure you update this information!!!!
+%\noindent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent \LARGE{\textbf{Course: WebDev -- Django Start.}} \hfill  \\ 
+%\vspace{0.25em}
+\textbf{Homework - 4}  \hfill  \\
+%Email: veralevel@gethu.edu \hfill ID: 123456789 \\
+
+\noindent Theme: Introduction To Django \hfill  \\
+Level: beginner\\
+Instructor: Mikhail Nakonechnyi \\
+Due Date: $6^{th}$ March, 2020 \\
+\noindent\rule{6.257in}{2.8pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{1. Создание сайта. Этап 1 - Подготовка}
+На начальном этапе необходимо провести некую подготовительную работу. Такая работа предполагает сбор информации о целевой аудитории и целях ресурса. Иначе говоря, вы должны придумать \textbf{ИДЕЮ}. Наш первый сайт будет блогом. Основываясь на результатах сбора информации, вы должны сделать вывод о том, какую тематику для своего сайта выбрать: новости (спорт, мода, наука...), тематический блог (кулинария, автомобили, шитье и тд). И следующим моментом будет придумать название, которое подчеркивает тематику сайта. \\
+\textit{\textbf{Примечание:}} дополнительные ресурсы для помощи:
+\begin{itemize}
+\item \href{https://blog.bigtime.ventures/kak-uznat-interesy-tselevoy-auditorii-metodiki-instrumenty-podkhody}{Как узнать интересы целевой аудитории}
+\item \href{https://www.ucraft.ru/blog/kak-sobrat-informatsiyu-o-tsa-dlya-sajta}{Как собрать информацию об аудитории}
+\href{https://www.marketing.spb.ru/lib-research/methods/collect_and_analysis.htm}{Методы сбора информации и инструменты анализа}
+\item \href{https://texterra.ru/blog/o-chem-vesti-blog-26-idey-dlya-nachinayushchikh.html}{О чем вести блог}
+\item \href{https://ifish2.ru/temy-dlya-bloga/}{Темы для блога}
+\item \href{https://texterra.ru/blog/7-tem-dlya-bloga-kotorye-zatsepyat-lyubogo.html}{Еще темы}
+\item \href{https://livesurf.ru/zhurnal/5719-idei-dlya-vedeniya-bloga.html}{И еще темы}
+\end{itemize}
+\end{problem}
+\noindent\rule{6.257in}{2.8pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{2. Создание сайта. Этап 2 - Контент}
+Основываясь на своей тематике сайта, написать/сочинить как минимум 1 статью. Название статьи должно быть не более 200 символов. Статья должна содержать не менее 3000 символов (с пробелами). Для статьи можно найти несколько тематических картинков широкого формата. Для работы воспользуйтесь \textbf{Google Docs}. Для того, чтобы вести учет своих работ - создайте папку на гугл диске с названием сайта, а в ней папку \textbf{Статьи}. Самый простой вариант хранить статьи подставляя номер статьи перед ее названием. \\
+\textbf{Контент} -- основа вашего сайта. Будь это авторские статьи или пользовательские статьи -- пользователь в первую очередь приходит за информацией, и мы должны в приятной форме её преподнести.
+На этом этапе необходимо иметь представление, какие разделы будут на вашем сайте. Например если будет страница <<О сайте>> -- что на ней найдет посетитель?
+Рекомендую проверять на орфографические ошибки (хотя бы при помощи MS Word). Остальные подробности о написании статей узнаете на занятии.\\
+\textit{\textbf{Примечание:}} ссылку на гугл документ отправить мне в телеграме. Я не приму работу скопированную под чистую из интернета.
+\end{problem}
+\noindent\rule{6.257in}{2.8pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{3. Знакомство с Django}
+
+\end{problem}
+\noindent\rule{6.257in}{2.8pt}
+\end{document}
+ 
