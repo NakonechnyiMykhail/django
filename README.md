@@ -7,14 +7,14 @@
 ----
 ### Lessons:
 ----
-__________________________________________________________________________________________________________________________________________________________
+
 | Lesson №  | Name                                          | Path                                                                          | Date       |
 |-----------|:----------------------------------------------|:------------------------------------------------------------------------------|:----------:|
 | Lesson 1  | Install instruments for work and basic HTML   | [lesson1/](https://github.com/NakonechnyiMykhail/django/tree/master/lesson1)  | 09.02.2020 |
 | Lesson 2  | Unix Bash Scripting                           | [lesson2/](https://github.com/NakonechnyiMykhail/django/tree/master/lesson2)  | 16.02.2020 |
 | Lesson 3  | HTML Structure and CSS Styles                 | [lesson3/](https://github.com/NakonechnyiMykhail/django/tree/master/lesson3)  | 23.02.2020 |
 | Lesson 4  | Introduction To Django                        | [lesson4/](https://github.com/NakonechnyiMykhail/django/tree/master/lesson4)  | 01.03.2020 |
-|________________________________________________________________________________________________________________________________________________________|
+
 
 
 ## Description of lessons:
