@@ -1,0 +1,188 @@
+\documentclass[a4paper, 11pt]{extarticle}
+%%% Работа с русским языком
+\usepackage{cmap}					% поиск в PDF
+\usepackage{mathtext} 				% русские буквы в формулах
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+%\usepackage[tmargin=4cm,bmargin=4cm,lmargin=2cm,rmargin=2cm,asymmetric,headheight=50pt,bindingoffset=1cm]{geometry}
+\usepackage[tmargin=1.5cm,bmargin=1.5cm,lmargin=2cm,rmargin=1.5cm,headheight=50pt]{geometry}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{lipsum} %This package just generates Lorem Ipsum filler text. 
+\usepackage{fullpage} % changes the margin
+%\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{verbatim}
+%\usepackage[numbered]{mcode}
+\usepackage{float}
+\usepackage{tikz}
+    \usetikzlibrary{shapes,arrows}
+    \usetikzlibrary{arrows,calc,positioning}
+
+    \tikzset{
+        block/.style = {draw, rectangle,
+            minimum height=1cm,
+            minimum width=1.5cm},
+        input/.style = {coordinate,node distance=1cm},
+        output/.style = {coordinate,node distance=4cm},
+        arrow/.style={draw, -latex,node distance=2cm},
+        pinstyle/.style = {pin edge={latex-, black,node distance=2cm}},
+        sum/.style = {draw, circle, node distance=1cm},
+    }
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+%\usepackage{indentfirst}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\newenvironment{problem}[2][Problem]
+    { \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+% Define solution environment
+\newenvironment{solution}
+    {\textit{Solution:}}
+    {}
+
+\renewcommand{\qed}{\quad\qedsymbol}
+
+
+\usepackage{fancyhdr}
+\usepackage{emptypage}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[LE,RO]{\includegraphics [width=.3\textwidth] {logo.png}}
+\fancyfoot[LE,RO]{\thepage}
+\pagestyle{fancy}
+\graphicspath{{../../tex_templates/figures/}}
+
+% code listing settings
+\usepackage{listings}
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    aboveskip={1.0\baselineskip},
+    belowskip={1.0\baselineskip},
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=4,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=lines,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    numbers=left,
+    numberstyle=\small,
+    stepnumber=1,
+    numbersep=10pt,
+    captionpos=t,
+    escapeinside={\%*}{*)}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%Header-Make sure you update this information!!!!
+%\noindent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent \LARGE{\textbf{Course: WebDev -- Django Start.}} \hfill  \\ 
+%\vspace{0.25em}
+\textbf{Homework - 3. Solve}  \hfill  \\
+%Email: veralevel@gethu.edu \hfill ID: 123456789 \\
+
+\noindent Theme: HTML Structure and CSS Styles. \hfill  \\
+Level: beginner\\
+Instructor: Mikhail Nakonechnyi \\
+%Due Date: $28^{th}$ February, 2020 \\
+\noindent\rule{6.257in}{2.8pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{1}
+Основываясь на примере файла из классного занятия \\ \textbf{index.html}, сделать следующую структуру страницы. \\
+\textit{\textbf{Примечание: }}весь текст можно заполнить <<рыбой>>. 
+\begin{itemize}
+\item <body>
+\item <h1>Название блога</h1>
+\begin{itemize}
+\item <div>
+\begin{itemize}
+\item <h2>Название статьи 1</h2>
+\item <h4>Короткое описание о чем статья</h4>
+\item <p>Текст статьи</p>
+\end{itemize}
+\item </div>
+\end{itemize}
+\item </body>
+\end{itemize}
+На странице должно располагаться 5 статей, каждая статья внутри тэга <div>.
+Количество символов в тексте должно быть в промежутке от 1000 до 1500.
+\end{problem}
+\begin{solution} 
+%\vspace{-1.5em}
+Решение смотреть в пункте [2].
+
+%\vspace{-2.5em}
+\end{solution} 
+\noindent\rule{6.257in}{2.8pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{2}
+Задать \textbf{цвет} фона глобально для всей страницы. Сделать стиль для \textit{названия блога}, выбрав \textbf{цвет} для фона и цвет для текста. Каждое \textit{название статьи} должно иметь одинаковый цвет фона и цвет текста. Тоже самое для описания и текста, между собой они одинаковые, но цвета должны быть уникальны.\\
+\textit{\textbf{Примечание: }}то есть каждый тэг должен иметь уникальный цвет для фона и текста. Фон можно не каждому тэгу задавать, но минимум 2. Для глубокого понимания и выполнения этой задачи, см. пункт [4]. %\ref{problem4}.
+\end{problem}
+\begin{solution} 
+\vspace{-1.5em}
+\lstinputlisting[language=HTML,caption=index.html.]{index.html}
+\vspace{-0.5em}
+\end{solution} 
+\noindent\rule{6.257in}{2.8pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{3}
+Загрузить все файлы на \textbf{GitHub}. Отправить мне ссылку на ваш репозиторий в telegram.
+\end{problem}
+\begin{solution} 
+\begin{lstlisting}[language=Bash]
+cd ~/Documents/DjangoStart/
+git status
+git pull
+git add lesson3/
+git commit -m "homework 3"
+git push -u origin master
+\end{lstlisting}
+\end{solution} 
+\noindent\rule{6.257in}{2.8pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{4}\label{problem4}
+Прочитать \href{https://html5book.ru/html-html5}{html5book}, пункты 1.1-1.6 (включительно). Из того, что проходили - \textbf{понимать все!!!}, с остальным главное ознакомиться.\\
+Для практики и примеров можно использовать \href{https://www.w3schools.com}{w3school}. 
+\end{problem}
+\noindent\rule{6.257in}{2.8pt}
+
+
+
+\end{document}
+ 

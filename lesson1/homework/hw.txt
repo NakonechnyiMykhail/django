@@ -1,0 +1,4 @@
+1. git (basic commands)
+2. linux command-line
+3. HOME workspace (sublime text/ git bash - install instruction)
+4. git clone instruction
