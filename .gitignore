@@ -6,3 +6,4 @@ lesson0/
 *.bbl
 *.synctex.gz
 .DS_Store
+site/myenv/
