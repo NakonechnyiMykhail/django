@@ -144,9 +144,72 @@ Due Date: $6^{th}$ March, 2020 \\
 \end{problem}
 \noindent\rule{6.257in}{2.8pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}{4. Команды Bash}
+Некоторые команды для работы с командной строкой терминала в UNIX/Linux или терминалом powershell(Windows), которые необходимо знать и использовать все время для работы:
+\begin{itemize}
+\item \textbf{ls} - отображение файлов и папок находящихся в директории
+\item \textbf{ls -l} - отображение файлов и папок с дополнительными параметрами
+\item \textbf{ls -la} - отображение файлов и папок с дополнительными параметрами и скрытыми файлами
+\item \textbf{cd PATH} - перейти в каталог по заданному пути 
+\item \textbf{cd ..} - перейти в "родительский" каталог
+\item \textbf{cd $\sim$} $\, $ - перейти в "домашнюю" директорию
+\item \textbf{cd -} - вернуться на одно действие назад (местонахождение)
+\item \textbf{cd path/to/documents/} - пример "пути"
+\item \textbf{clear} - очистить окно терминала
+\item \textbf{mkdir $FOLDER\_NAME$} - создать папку с названием
+\item \textbf{mv path/to/file.txt newfile.html} - переместить файл / папку или переименовать файл / папку
+\item \textbf{cp path/to/file.txt newfile.html} - скопировать файл или папку 
+\item \textbf{rm path/to/file.txt} - удалить файл по адресу
+\item \textbf{rm -rf directory/} - удалить папку
+\item \textbf{touch index.html} - создать файл index.html
+\end{itemize}
+\end{problem}
+\noindent\rule{6.257in}{2.8pt}
 
-\begin{problem}{3. Знакомство с Django}
+\begin{problem}{4. Установка Python}
+\textit{\textbf{Примечание:}} инструкции и описания ниже относятся к терминалу Linux (в частности, к нашему IDE для работы).\\
+Django написан на Python. Нам нужен Python, чтобы сделать что-нибудь в Django. Начнем с его установки! Мы хотим самую свежую версию Python 3. Для установки нужно ввести команду:
+\begin{lstlisting}[language=Bash]
+$ apt-get install python3
+\end{lstlisting}
+Если уже установлена версия 3.4 или более высокая, она должна подойти. Для проверки можно воспользоваться следующей командой:
+\begin{lstlisting}[language=Bash]
+$ python3 --version
+\end{lstlisting}
+\end{problem}
+\noindent\rule{6.257in}{2.8pt}
 
+
+\begin{problem}{5. Настройка виртуального окружения}
+Перед установкой Django мы должны установить крайне полезный инструмент, который поможет содержать среду разработки в чистоте. Можно пропустить этот шаг, но лучше этого не делать. Использование лучших рекомендаций с самого начала убережёт от многих проблем в будущем!
+Итак, создадим виртуальное окружение (оно также называется virtualenv). \textbf{Virtualenv} будет изолировать настройки Python/Django для каждого отдельного проекта. Это значит, что изменения одного сайта не затронут другие сайты, которые будут разрабатываться. 
+Всё, что нужно сделать -- найти директорию, в которой мы создадим virtualenv. 
+Мы будем использовать директорию нашего проекта в домашнем каталоге:
+\begin{lstlisting}[language=Bash]
+~/$ cd django
+\end{lstlisting}
+Мы создадим виртуальное окружение под именем \textbf{myenv}. В общем случае команда будет выглядеть так:
+\begin{lstlisting}[language=Bash]
+~/django/$ python3 -m venv myenv
+\end{lstlisting}
+Указанная выше команда создаст директорию $myenv$ (или другую, в зависимости от выбранного имени), которая будет содержать виртуальное окружение (по сути -- набор файлов и папок).
+Для запуска виртуального окружения, необходимо выполнить следующую команду в папке $django$:
+\begin{lstlisting}[language=Bash]
+~/django/$ source myenv/bin/activate
+\end{lstlisting}
+Будет видно, что virtualenv запущено, когда появится префикс $(myenv)$ в начале командной строки. 
+\begin{lstlisting}[language=Bash]
+(myenv) ~/django/$ 
+\end{lstlisting}
+При работе с виртуальным окружением команда python будет автоматически обращаться к правильной версии языка, так что можно использовать просто python вместо python3.
+Теперь мы будем хранить все важные зависимости в одном месте. 
+\end{problem}
+\noindent\rule{6.257in}{2.8pt}
+
+
+
+\begin{problem}{5. Знакомство с Django}
+Перейдем к установке Django!
 \end{problem}
 \noindent\rule{6.257in}{2.8pt}
 \end{document}
