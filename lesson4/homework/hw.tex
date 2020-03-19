@@ -1,0 +1,216 @@
+\documentclass[a4paper, 11pt]{extarticle}
+%%% Работа с русским языком
+\usepackage{cmap}					% поиск в PDF
+\usepackage{mathtext} 				% русские буквы в формулах
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+%\usepackage[tmargin=4cm,bmargin=4cm,lmargin=2cm,rmargin=2cm,asymmetric,headheight=50pt,bindingoffset=1cm]{geometry}
+\usepackage[tmargin=1.5cm,bmargin=1.5cm,lmargin=2cm,rmargin=1.5cm,headheight=50pt]{geometry}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{lipsum} %This package just generates Lorem Ipsum filler text. 
+\usepackage{fullpage} % changes the margin
+%\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{verbatim}
+%\usepackage[numbered]{mcode}
+\usepackage{float}
+\usepackage{tikz}
+    \usetikzlibrary{shapes,arrows}
+    \usetikzlibrary{arrows,calc,positioning}
+
+    \tikzset{
+        block/.style = {draw, rectangle,
+            minimum height=1cm,
+            minimum width=1.5cm},
+        input/.style = {coordinate,node distance=1cm},
+        output/.style = {coordinate,node distance=4cm},
+        arrow/.style={draw, -latex,node distance=2cm},
+        pinstyle/.style = {pin edge={latex-, black,node distance=2cm}},
+        sum/.style = {draw, circle, node distance=1cm},
+    }
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+%\usepackage{indentfirst}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\newenvironment{problem}[2][Problem]
+    { \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+% Define solution environment
+\newenvironment{solution}
+    {\textit{Solution:}}
+    {}
+
+\renewcommand{\qed}{\quad\qedsymbol}
+
+
+\usepackage{fancyhdr}
+\usepackage{emptypage}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[LE,RO]{\includegraphics [width=.3\textwidth] {logo.png}}
+\fancyfoot[LE,RO]{\thepage}
+\pagestyle{fancy}
+\graphicspath{{../../tex_templates/figures/}}
+
+% code listing settings
+\usepackage{listings}
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    aboveskip={1.0\baselineskip},
+    belowskip={1.0\baselineskip},
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=4,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=lines,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    numbers=left,
+    numberstyle=\small,
+    stepnumber=1,
+    numbersep=10pt,
+    captionpos=t,
+    escapeinside={\%*}{*)}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%Header-Make sure you update this information!!!!
+%\noindent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent \LARGE{\textbf{Course: WebDev -- Django Start.}} \hfill  \\ 
+%\vspace{0.25em}
+\textbf{Homework - 4}  \hfill  \\
+%Email: veralevel@gethu.edu \hfill ID: 123456789 \\
+
+\noindent Theme: Introduction To Django \hfill  \\
+Level: beginner\\
+Instructor: Mikhail Nakonechnyi \\
+Due Date: $6^{th}$ March, 2020 \\
+\noindent\rule{6.257in}{2.8pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{1. Создание сайта. Этап 1 - Подготовка}
+На начальном этапе необходимо провести некую подготовительную работу. Такая работа предполагает сбор информации о целевой аудитории и целях ресурса. Иначе говоря, вы должны придумать \textbf{ИДЕЮ}. Наш первый сайт будет блогом. Основываясь на результатах сбора информации, вы должны сделать вывод о том, какую тематику для своего сайта выбрать: новости (спорт, мода, наука...), тематический блог (кулинария, автомобили, шитье и тд). И следующим моментом будет придумать название, которое подчеркивает тематику сайта. \\
+\textit{\textbf{Примечание:}} дополнительные ресурсы для помощи:
+\begin{itemize}
+\item \href{https://blog.bigtime.ventures/kak-uznat-interesy-tselevoy-auditorii-metodiki-instrumenty-podkhody}{Как узнать интересы целевой аудитории}
+\item \href{https://www.ucraft.ru/blog/kak-sobrat-informatsiyu-o-tsa-dlya-sajta}{Как собрать информацию об аудитории}
+\href{https://www.marketing.spb.ru/lib-research/methods/collect_and_analysis.htm}{Методы сбора информации и инструменты анализа}
+\item \href{https://texterra.ru/blog/o-chem-vesti-blog-26-idey-dlya-nachinayushchikh.html}{О чем вести блог}
+\item \href{https://ifish2.ru/temy-dlya-bloga/}{Темы для блога}
+\item \href{https://texterra.ru/blog/7-tem-dlya-bloga-kotorye-zatsepyat-lyubogo.html}{Еще темы}
+\item \href{https://livesurf.ru/zhurnal/5719-idei-dlya-vedeniya-bloga.html}{И еще темы}
+\end{itemize}
+\end{problem}
+\noindent\rule{6.257in}{2.8pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{2. Создание сайта. Этап 2 - Контент}
+Основываясь на своей тематике сайта, написать/сочинить как минимум 1 статью. Название статьи должно быть не более 200 символов. Статья должна содержать не менее 3000 символов (с пробелами). Для статьи можно найти несколько тематических картинков широкого формата. Для работы воспользуйтесь \textbf{Google Docs}. Для того, чтобы вести учет своих работ - создайте папку на гугл диске с названием сайта, а в ней папку \textbf{Статьи}. Самый простой вариант хранить статьи подставляя номер статьи перед ее названием. \\
+\textbf{Контент} -- основа вашего сайта. Будь это авторские статьи или пользовательские статьи -- пользователь в первую очередь приходит за информацией, и мы должны в приятной форме её преподнести.
+На этом этапе необходимо иметь представление, какие разделы будут на вашем сайте. Например если будет страница <<О сайте>> -- что на ней найдет посетитель?
+Рекомендую проверять на орфографические ошибки (хотя бы при помощи MS Word). Остальные подробности о написании статей узнаете на занятии.\\
+\textit{\textbf{Примечание:}} ссылку на гугл документ отправить мне в телеграме. Я не приму работу скопированную под чистую из интернета.
+\end{problem}
+\noindent\rule{6.257in}{2.8pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}{4. Команды Bash}
+Некоторые команды для работы с командной строкой терминала в UNIX/Linux или терминалом powershell(Windows), которые необходимо знать и использовать все время для работы:
+\begin{itemize}
+\item \textbf{ls} - отображение файлов и папок находящихся в директории
+\item \textbf{ls -l} - отображение файлов и папок с дополнительными параметрами
+\item \textbf{ls -la} - отображение файлов и папок с дополнительными параметрами и скрытыми файлами
+\item \textbf{cd PATH} - перейти в каталог по заданному пути 
+\item \textbf{cd ..} - перейти в "родительский" каталог
+\item \textbf{cd $\sim$} $\, $ - перейти в "домашнюю" директорию
+\item \textbf{cd -} - вернуться на одно действие назад (местонахождение)
+\item \textbf{cd path/to/documents/} - пример "пути"
+\item \textbf{clear} - очистить окно терминала
+\item \textbf{mkdir $FOLDER\_NAME$} - создать папку с названием
+\item \textbf{mv path/to/file.txt newfile.html} - переместить файл / папку или переименовать файл / папку
+\item \textbf{cp path/to/file.txt newfile.html} - скопировать файл или папку 
+\item \textbf{rm path/to/file.txt} - удалить файл по адресу
+\item \textbf{rm -rf directory/} - удалить папку
+\item \textbf{touch index.html} - создать файл index.html
+\end{itemize}
+\end{problem}
+\noindent\rule{6.257in}{2.8pt}
+
+\begin{problem}{4. Установка Python}
+\textit{\textbf{Примечание:}} инструкции и описания ниже относятся к терминалу Linux (в частности, к нашему IDE для работы).\\
+Django написан на Python. Нам нужен Python, чтобы сделать что-нибудь в Django. Начнем с его установки! Мы хотим самую свежую версию Python 3. Для установки нужно ввести команду:
+\begin{lstlisting}[language=Bash]
+$ apt-get install python3
+\end{lstlisting}
+Если уже установлена версия 3.4 или более высокая, она должна подойти. Для проверки можно воспользоваться следующей командой:
+\begin{lstlisting}[language=Bash]
+$ python3 --version
+\end{lstlisting}
+\end{problem}
+\noindent\rule{6.257in}{2.8pt}
+
+
+\begin{problem}{5. Настройка виртуального окружения}
+Перед установкой Django мы должны установить крайне полезный инструмент, который поможет содержать среду разработки в чистоте. Можно пропустить этот шаг, но лучше этого не делать. Использование лучших рекомендаций с самого начала убережёт от многих проблем в будущем!
+Итак, создадим виртуальное окружение (оно также называется virtualenv). \textbf{Virtualenv} будет изолировать настройки Python/Django для каждого отдельного проекта. Это значит, что изменения одного сайта не затронут другие сайты, которые будут разрабатываться. 
+Всё, что нужно сделать -- найти директорию, в которой мы создадим virtualenv. 
+Мы будем использовать директорию нашего проекта в домашнем каталоге:
+\begin{lstlisting}[language=Bash]
+~/$ cd django
+\end{lstlisting}
+Мы создадим виртуальное окружение под именем \textbf{myenv}. В общем случае команда будет выглядеть так:
+\begin{lstlisting}[language=Bash]
+~/django/$ python3 -m venv myenv
+\end{lstlisting}
+Указанная выше команда создаст директорию $myenv$ (или другую, в зависимости от выбранного имени), которая будет содержать виртуальное окружение (по сути -- набор файлов и папок).
+Для запуска виртуального окружения, необходимо выполнить следующую команду в папке $django$:
+\begin{lstlisting}[language=Bash]
+~/django/$ source myenv/bin/activate
+\end{lstlisting}
+Будет видно, что virtualenv запущено, когда появится префикс $(myenv)$ в начале командной строки. 
+\begin{lstlisting}[language=Bash]
+(myenv) ~/django/$ 
+\end{lstlisting}
+При работе с виртуальным окружением команда python будет автоматически обращаться к правильной версии языка, так что можно использовать просто python вместо python3.
+Теперь мы будем хранить все важные зависимости в одном месте. 
+\end{problem}
+\noindent\rule{6.257in}{2.8pt}
+
+
+
+\begin{problem}{5. Знакомство с Django}
+Перейдем к установке Django!
+\end{problem}
+\noindent\rule{6.257in}{2.8pt}
+\end{document}
+ 
