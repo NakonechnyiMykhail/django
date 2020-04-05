@@ -120,3 +120,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/ubuntu/django/project/mysite/static/'
+
+# log: mike
+# pass: GlylvEk5
